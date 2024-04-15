@@ -13,7 +13,7 @@ export default{
         <img :src="cardInfo.card_images[0].image_url_small" class="card-img-top" alt="...">
         <div class="card-body ms-card-body">
             <h5 class="card-title">{{ cardInfo.name }}</h5>
-            <p class="card-text">{{ cardInfo.archetype }}</p>
+            <p class="card-text">{{ cardInfo.race }}</p>
         </div>  
     </div>
 </div>

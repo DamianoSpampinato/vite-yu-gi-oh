@@ -2,14 +2,16 @@
 import axios from 'axios';
 import { store } from './store.js';
 import AppHeader from './components/AppHeader.vue';
-import CardsList from './components/CardsList.vue'
+import CardsList from './components/CardsList.vue';
+import Loader from './components/Loader.vue';
 
 
 
 export default {
   components: {
     AppHeader,
-    CardsList
+    CardsList,
+    Loader
 
   },
   data() {
@@ -29,7 +31,7 @@ export default {
       })
       .then((response) => {
         store.cardsArray= response.data.data;
-        console.log(store.card)
+        store.isLoading = false;
       
       });
     }
@@ -43,7 +45,8 @@ export default {
 <template>
 
 <AppHeader></AppHeader>
-<CardsList></CardsList>
+<CardsList v-if="!store.isLoading"></CardsList>
+<Loader v-else></Loader>
 </template>
 
 <style lang="scss">
