@@ -19,19 +19,22 @@ export default {
   data() {
     return {
       store,
-      QParams: {
-        num: 20,
-        offset:0,
-      }
+     
     };
   },
   methods: {
     getCardsFromApi() {
-
+      const QParams = {
+        num: 20,
+        offset:0,
+      }
+      if(store.searchedArchetype !== '') {
+     QParams.archetype = store.searchedArchetype;
+    }
       axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php',{
-        params: this.QParams
+        params: QParams
       })
-      .then((response) => {
+      .then((response) => { 
         store.cardsArray= response.data.data;
         store.isLoading = false;
       
@@ -56,7 +59,7 @@ export default {
 <AppHeader></AppHeader>
 <CardsList v-if="!store.isLoading"></CardsList>
 <Loader v-else></Loader>
-<Search></Search>
+<Search @searchPerformed="getCardsFromApi"></Search>
 </template>
 
 <style lang="scss">
