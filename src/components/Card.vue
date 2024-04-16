@@ -8,7 +8,7 @@ export default{
 </script>
 
 <template>
-<div class="col-3">
+<div class="col">
     <div class="card">
         <img :src="cardInfo.card_images[0].image_url_small" class="card-img-top" alt="...">
         <div class="card-body ms-card-body">
