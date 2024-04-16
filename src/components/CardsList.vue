@@ -1,10 +1,12 @@
 <script>
-import Card from './Card.vue'
-import {store} from '../store.js'
+import Card from './Card.vue';
+import {store} from '../store.js';
+import AppCounterCards from './AppCounterCards.vue';
 export default{
     name: 'CardsList',
     components: {
-        Card
+        Card,
+        AppCounterCards
     },
     data(){
         return{
@@ -20,6 +22,7 @@ export default{
             <div class="container d-flex m-1 flex-wrap">
                 <div class="row">
                     <Card v-for="card in store.cardsArray" :key="card.id" :cardInfo="card"></Card>
+                    <AppCounterCards></AppCounterCards>
                 </div>
             </div>
         </div>
