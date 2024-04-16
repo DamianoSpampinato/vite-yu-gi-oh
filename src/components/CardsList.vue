@@ -35,6 +35,10 @@ export default{
 <style scoped lang="scss">
 .ms-bg-primary{
     background-color: white;
+    background-image: url(../img/Arte.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     
 }
 
